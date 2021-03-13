@@ -1,0 +1,146 @@
+$done-color: rgb(121, 230, 193);
+$danger-color: rgb(255, 29, 29);
+$doing-color: rgb(172, 0, 114);
+$over-color: rgb(0, 0, 0);
+
+table {
+  user-select: none;
+}
+
+.field {
+  height: 50vh;
+  color: white;
+  border-width: medium;
+  border-style: dashed;
+  border-color: white;
+  font-size: 50px;
+}
+
+.done {
+  background: url("../../assets/gif/firework.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.danger {
+  background-color: $danger-color;
+}
+
+.doing {
+  background-color: $doing-color;
+}
+
+.over {
+  background-color: $over-color;
+}
+
+.heal-btn {
+  background-color: #1890ff;
+  color: white;
+  width: 50%;
+  font-size: large;
+  border: violet;
+}
+
+.back-btn {
+  background-color: red;
+  color: white;
+  width: 50%;
+  font-size: large;
+  border: violet;
+}
+
+// 選單按鈕
+.menu-btn {
+  color: white;
+  font-size: 50px;
+  user-select: none;
+}
+
+// 選單內容
+.menu-content {
+  font-size: 20px;
+  user-select: none;
+  span {
+    padding-left: 30px;
+  }
+}
+
+.a-hide-done,
+.b-hide-done,
+.c-hide-done,
+.d-hide-done,
+.e-hide-done,
+.f-hide-done,
+.g-hide-done,
+.h-hide-done {
+  color: rgba(0, 0, 0, 0);
+}
+
+.a-hide-danger,
+.b-hide-danger,
+.c-hide-danger,
+.d-hide-danger,
+.e-hide-danger,
+.f-hide-danger,
+.g-hide-danger,
+.h-hide-danger {
+  color: $danger-color;
+}
+
+.a-hide-doing,
+.b-hide-doing,
+.c-hide-doing,
+.d-hide-doing,
+.e-hide-doing,
+.f-hide-doing,
+.g-hide-doing,
+.h-hide-doing {
+  color: $doing-color;
+}
+
+.a-hide-over,
+.b-hide-over,
+.c-hide-over,
+.d-hide-over,
+.e-hide-over,
+.f-hide-over,
+.g-hide-over,
+.h-hide-over {
+  color: $over-color;
+}
+
+.tableA:hover .a-hide-done,
+.tableA:hover .a-hide-danger,
+.tableA:hover .a-hide-doing,
+.tableA:hover .a-hide-over,
+.tableB:hover .b-hide-done,
+.tableB:hover .b-hide-danger,
+.tableB:hover .b-hide-doing,
+.tableB:hover .b-hide-over,
+.tableC:hover .c-hide-done,
+.tableC:hover .c-hide-danger,
+.tableC:hover .c-hide-doing,
+.tableC:hover .c-hide-over,
+.tableD:hover .d-hide-done,
+.tableD:hover .d-hide-danger,
+.tableD:hover .d-hide-doing,
+.tableD:hover .d-hide-over,
+.tableE:hover .e-hide-done,
+.tableE:hover .e-hide-danger,
+.tableE:hover .e-hide-doing,
+.tableE:hover .e-hide-over,
+.tableF:hover .f-hide-done,
+.tableF:hover .f-hide-danger,
+.tableF:hover .f-hide-doing,
+.tableF:hover .f-hide-over,
+.tableG:hover .g-hide-done,
+.tableG:hover .g-hide-danger,
+.tableG:hover .g-hide-doing,
+.tableG:hover .g-hide-over,
+.tableH:hover .h-hide-done,
+.tableH:hover .h-hide-danger,
+.tableH:hover .h-hide-doing,
+.tableH:hover .h-hide-over {
+  color: rgb(255, 205, 213);
+}
