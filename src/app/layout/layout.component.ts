@@ -19,7 +19,7 @@ export class LayoutComponent implements OnInit {
   nameG = 'G國';
 
   valueA = 103;
-  valueB = 101;
+  valueB = 360;
   valueC = 106;
   valueD = 104;
   valueE = 105;

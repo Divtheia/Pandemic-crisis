@@ -31,7 +31,9 @@ table {
 }
 
 .over {
-  background-color: $over-color;
+  background: url("../../assets/gif/warning2.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .heal-btn {
@@ -85,7 +87,7 @@ table {
 .f-hide-danger,
 .g-hide-danger,
 .h-hide-danger {
-  color: $danger-color;
+  color: rgba(0, 0, 0, 0);
 }
 
 .a-hide-doing,
@@ -96,7 +98,7 @@ table {
 .f-hide-doing,
 .g-hide-doing,
 .h-hide-doing {
-  color: $doing-color;
+  color: rgba(0, 0, 0, 0);
 }
 
 .a-hide-over,
@@ -107,7 +109,7 @@ table {
 .f-hide-over,
 .g-hide-over,
 .h-hide-over {
-  color: $over-color;
+  color: rgba(0, 0, 0, 0);
 }
 
 .tableA:hover .a-hide-done,
