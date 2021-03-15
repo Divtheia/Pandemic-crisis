@@ -757,9 +757,11 @@ export class LayoutComponent implements OnInit {
 
     this.lessTime = lessTime;
 
-    timerMin < 10 ? (timerMin = '0' + timerMin) : timerMin;
-    timerSec < 10 ? (timerSec = '0' + timerSec) : timerSec;
-    this.timer = timerMin + ':' + timerSec;
+    if (!this.isStop) {
+      timerMin < 10 ? (timerMin = '0' + timerMin) : timerMin;
+      timerSec < 10 ? (timerSec = '0' + timerSec) : timerSec;
+      this.timer = timerMin + ':' + timerSec;
+    }
 
     if (this.minSet > 5 && this.timer == '02:00') {
       this.toShowRemind();
