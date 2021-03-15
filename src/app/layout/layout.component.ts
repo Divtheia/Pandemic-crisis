@@ -60,10 +60,12 @@ export class LayoutComponent implements OnInit {
   isRemindShow = false;
   isCountryShow = false;
   isAddShow = false;
+  isStop = false;
   helpNum = 0;
   helpValue = 0;
   timer = '';
   minSet = 8;
+  lessTime = 0;
 
   // constructor(private nzMessageService: NzMessageService) {}
   constructor() {}
@@ -747,24 +749,27 @@ export class LayoutComponent implements OnInit {
   }
 
   // 計時
-  timing() {
-    const source = interval(1000);
-    const time = this.minSet * 60;
-    source.pipe(takeUntil(timer((time + 2) * 1000))).subscribe((e) => {
-      const leftSec = time - e;
-      let timerMin: any;
-      let timerSec: any;
-      timerMin = Math.floor(leftSec / 60);
-      timerSec = leftSec % 60;
-      timerMin < 10 ? (timerMin = '0' + timerMin) : timerMin;
-      timerSec < 10 ? (timerSec = '0' + timerSec) : timerSec;
-      this.timer = timerMin + ':' + timerSec;
+  timing(lessTime: number) {
+    let timerMin: any;
+    let timerSec: any;
+    timerMin = Math.floor(lessTime / 60);
+    timerSec = lessTime % 60;
 
-      if (this.minSet > 5 && this.timer == '02:00') {
-        this.toShowRemind();
-      }
-      console.log(this.timer);
-    });
+    this.lessTime = lessTime;
+
+    timerMin < 10 ? (timerMin = '0' + timerMin) : timerMin;
+    timerSec < 10 ? (timerSec = '0' + timerSec) : timerSec;
+    this.timer = timerMin + ':' + timerSec;
+
+    if (this.minSet > 5 && this.timer == '02:00') {
+      this.toShowRemind();
+    }
+
+    if (lessTime > 0 && !this.isStop) {
+      setTimeout(() => {
+        this.timing(lessTime - 1);
+      }, 1000);
+    }
   }
 
   // 使用計時事件
@@ -779,9 +784,18 @@ export class LayoutComponent implements OnInit {
   }
 
   handleTimerOk() {
-    this.timing();
+    this.timing(this.minSet * 60);
     this.isTimerShow = false;
     // this.nzMessageService.info("計時開始");
+  }
+
+  timeOut() {
+    this.isStop = true;
+  }
+
+  continue() {
+    this.isStop = false;
+    this.timing(this.lessTime);
   }
 
   // 使用提醒
