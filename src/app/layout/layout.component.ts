@@ -528,7 +528,9 @@ export class LayoutComponent implements OnInit {
 
   // 動態取得國家 Class
   getAClass() {
-    if (this.valueA == 0) {
+    if (this.isAllPass()) {
+      return 'field done';
+    } else if (this.valueA == 0) {
       return 'field done before';
     } else if (this.valueA >= 240 && this.valueA < 360) {
       return 'field danger';
@@ -540,7 +542,9 @@ export class LayoutComponent implements OnInit {
   }
 
   getBClass() {
-    if (this.valueB == 0) {
+    if (this.isAllPass()) {
+      return 'field done';
+    } else if (this.valueB == 0) {
       return 'field done';
     } else if (this.valueB >= 240 && this.valueB < 360) {
       return 'field danger';
@@ -552,7 +556,9 @@ export class LayoutComponent implements OnInit {
   }
 
   getCClass() {
-    if (this.valueC == 0) {
+    if (this.isAllPass()) {
+      return 'field done';
+    } else if (this.valueC == 0) {
       return 'field done';
     } else if (this.valueC >= 240 && this.valueC < 360) {
       return 'field danger';
@@ -564,7 +570,9 @@ export class LayoutComponent implements OnInit {
   }
 
   getDClass() {
-    if (this.valueD == 0) {
+    if (this.isAllPass()) {
+      return 'field done';
+    } else if (this.valueD == 0) {
       return 'field done';
     } else if (this.valueD >= 240 && this.valueD < 360) {
       return 'field danger';
@@ -576,7 +584,9 @@ export class LayoutComponent implements OnInit {
   }
 
   getEClass() {
-    if (this.valueE == 0) {
+    if (this.isAllPass()) {
+      return 'field done';
+    } else if (this.valueE == 0) {
       return 'field done';
     } else if (this.valueE >= 240 && this.valueE < 360) {
       return 'field danger';
@@ -588,7 +598,9 @@ export class LayoutComponent implements OnInit {
   }
 
   getFClass() {
-    if (this.valueF == 0) {
+    if (this.isAllPass()) {
+      return 'field done';
+    } else if (this.valueF == 0) {
       return 'field done';
     } else if (this.valueF >= 240 && this.valueF < 360) {
       return 'field danger';
@@ -600,7 +612,9 @@ export class LayoutComponent implements OnInit {
   }
 
   getGClass() {
-    if (this.valueG == 0) {
+    if (this.isAllPass()) {
+      return 'field done';
+    } else if (this.valueG == 0) {
       return 'field done';
     } else if (this.valueG >= 240 && this.valueG < 360) {
       return 'field danger';
@@ -612,19 +626,26 @@ export class LayoutComponent implements OnInit {
   }
 
   getTimeClass() {
-    if (
-      this.valueA +
-        this.valueB +
-        this.valueC +
-        this.valueD +
-        this.valueE +
-        this.valueF +
-        this.valueG ==
-      0
-    ) {
+    if (this.isAllPass()) {
       return 'field done';
     } else {
       return 'field doing';
+    }
+  }
+
+  isAllPass() {
+    if (
+      this.valueA <= 0 &&
+      this.valueB <= 0 &&
+      this.valueC <= 0 &&
+      this.valueD <= 0 &&
+      this.valueE <= 0 &&
+      this.valueF <= 0 &&
+      this.valueG <= 0
+    ) {
+      return true;
+    } else {
+      return false;
     }
   }
 
