@@ -915,14 +915,15 @@ export class LayoutComponent implements OnInit {
     const audio = new Audio();
     audio.src = '../../assets/mp3/broadcast-open.mp3';
     audio.load();
-    audio.play();
+    setTimeout(() => audio.play(), 500);
+    console.log('音效測試');
   }
 
   playAudioEnd() {
     const audio = new Audio();
     audio.src = '../../assets/mp3/broadcast-end.mp3';
     audio.load();
-    audio.play();
+    setTimeout(() => audio.play(), 500);
     this.isAudioShow = false;
   }
 
