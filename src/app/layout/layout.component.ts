@@ -59,6 +59,7 @@ export class LayoutComponent implements OnInit {
   isTimerShow = false;
   isRemindShow = false;
   isCountryShow = false;
+  isAudioShow = false;
   isAddShow = false;
   isStop = false;
   helpNum = 0;
@@ -907,5 +908,30 @@ export class LayoutComponent implements OnInit {
     indexE != -1 ? (this.valueE += 10) : this.valueE;
     indexF != -1 ? (this.valueF += 10) : this.valueF;
     indexG != -1 ? (this.valueG += 10) : this.valueG;
+  }
+
+  // 播放音效
+  playAudioOpen() {
+    const audio = new Audio();
+    audio.src = '../../assets/mp3/broadcast-open.mp3';
+    audio.load();
+    audio.play();
+  }
+
+  playAudioEnd() {
+    const audio = new Audio();
+    audio.src = '../../assets/mp3/broadcast-end.mp3';
+    audio.load();
+    audio.play();
+    this.isAudioShow = false;
+  }
+
+  toShowAudio() {
+    this.isAudioShow = true;
+    this.visible = false;
+  }
+
+  handleAudioCancel() {
+    this.isAudioShow = false;
   }
 }

@@ -621,6 +621,9 @@
   <p class="menu-content" (click)="toShowCountry()">
     <i nz-icon nzType="global" nzTheme="outline"></i><span>國家啟用</span>
   </p>
+  <p class="menu-content" (click)="toShowAudio()">
+    <i nz-icon nzType="notification" nzTheme="outline"></i><span>啟用廣播</span>
+  </p>
 </nz-drawer>
 
 <nz-modal
@@ -753,4 +756,22 @@
       </div>
     </div>
   </nz-checkbox-wrapper>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="isAudioShow"
+  nzTitle="廣播音效"
+  [nzFooter]="modalFooter"
+  (nzOnCancel)="handleAudioCancel()"
+>
+  <h2>請選擇音效</h2>
+
+  <ng-template #modalFooter>
+    <button nz-button nzType="default" (click)="playAudioOpen()">
+      開始廣播
+    </button>
+    <button nz-button nzType="primary" (click)="playAudioEnd()">
+      結束廣播
+    </button>
+  </ng-template>
 </nz-modal>
