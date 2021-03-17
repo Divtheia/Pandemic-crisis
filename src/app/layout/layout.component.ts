@@ -913,17 +913,18 @@ export class LayoutComponent implements OnInit {
   // 播放音效
   playAudioOpen() {
     const audio = new Audio();
-    audio.src = '../../assets/mp3/broadcast-open.mp3';
+    audio.src = 'https://cdn-std.droplr.net/files/acc_1157976/v1B4N8';
     audio.load();
-    setTimeout(() => audio.play(), 500);
-    console.log('音效測試');
+    audio.play();
+    console.log('廣播開啟');
   }
 
   playAudioEnd() {
     const audio = new Audio();
-    audio.src = '../../assets/mp3/broadcast-end.mp3';
+    audio.src = 'https://cdn-std.droplr.net/files/acc_1157976/S7Zgop';
     audio.load();
-    setTimeout(() => audio.play(), 500);
+    audio.play();
+    console.log('廣播結束');
     this.isAudioShow = false;
   }
 
