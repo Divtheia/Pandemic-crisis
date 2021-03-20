@@ -590,25 +590,23 @@
   </div>
 </body>
 
-<nz-affix style="position: absolute; top: 92vh; width: 100%">
-  <div style="padding: 0% 1%; width: 100%">
-    <i
-      nz-icon
-      nzType="right-circle"
-      nzTheme="outline"
-      (click)="open()"
-      class="menu-btn"
-    ></i>
-    <div style="float: right">
-      <i
-        nz-icon
-        nzType="notification"
-        nzTheme="outline"
-        class="menu-btn"
-        (click)="toShowAudio()"
-      ></i>
-    </div>
-  </div>
+<nz-affix style="position: absolute; top: 91vh; left: 15px">
+  <i
+    nz-icon
+    nzType="right-circle"
+    nzTheme="outline"
+    (click)="open()"
+    class="menu-btn"
+  ></i>
+</nz-affix>
+<nz-affix style="position: absolute; top: 91vh; right: 15px">
+  <i
+    nz-icon
+    nzType="notification"
+    nzTheme="outline"
+    (click)="toShowAudio()"
+    class="menu-btn"
+  ></i>
 </nz-affix>
 
 <!-- 抽屜 -->
