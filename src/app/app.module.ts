@@ -24,6 +24,7 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { LayoutComponent } from './layout/layout.component';
@@ -54,6 +55,7 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     HttpClientModule,
     NzToolTipModule,
+    NzTabsModule,
     DragDropModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_TW }],

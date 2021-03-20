@@ -590,14 +590,25 @@
   </div>
 </body>
 
-<nz-affix style="position: absolute; top: 92vh">
-  <i
-    nz-icon
-    nzType="right-circle"
-    nzTheme="outline"
-    (click)="open()"
-    class="menu-btn"
-  ></i>
+<nz-affix style="position: absolute; top: 92vh; width: 100%">
+  <div style="padding: 0% 1%; width: 100%">
+    <i
+      nz-icon
+      nzType="right-circle"
+      nzTheme="outline"
+      (click)="open()"
+      class="menu-btn"
+    ></i>
+    <div style="float: right">
+      <i
+        nz-icon
+        nzType="notification"
+        nzTheme="outline"
+        class="menu-btn"
+        (click)="toShowAudio()"
+      ></i>
+    </div>
+  </div>
 </nz-affix>
 
 <!-- 抽屜 -->
@@ -613,10 +624,15 @@
     <i nz-icon nzType="rise" nzTheme="outline"></i><span>疫情增加</span>
   </p>
   <p class="menu-content" (click)="toShowAdd()">
-    <i nz-icon nzType="line-chart" nzTheme="outline"></i><span>疫情事件</span>
+    <i nz-icon nzType="line-chart" nzTheme="outline"></i><span>事件增加</span
+    ><i nz-icon nzType="plus-circle" nzTheme="fill"></i>
   </p>
   <p class="menu-content" (click)="toShowHelp()">
     <i nz-icon nzType="box-plot" nzTheme="outline"></i><span>事件疫苗</span>
+  </p>
+  <p class="menu-content" (click)="toShowLess()">
+    <i nz-icon nzType="line-chart" nzTheme="outline"></i><span>事件減少</span
+    ><i nz-icon nzType="minus-circle" nzTheme="fill"></i>
   </p>
   <p class="menu-content" (click)="toShowCountry()">
     <i nz-icon nzType="global" nzTheme="outline"></i><span>國家啟用</span>
@@ -637,11 +653,44 @@
 
 <nz-modal
   [(nzVisible)]="isAddShow"
-  nzTitle="事件情況"
+  nzTitle="事件增加疫情情況"
   (nzOnCancel)="handleAddCancel()"
   (nzOnOk)="handleAddOk()"
 >
   <nz-checkbox-wrapper style="width: 100%" (nzOnChange)="addLog($event)">
+    <div nz-row>
+      <div nz-col nzSpan="6">
+        <label nz-checkbox nzValue="A">{{ nameA }}</label>
+      </div>
+      <div nz-col nzSpan="6">
+        <label nz-checkbox nzValue="B">{{ nameB }}</label>
+      </div>
+      <div nz-col nzSpan="6">
+        <label nz-checkbox nzValue="C">{{ nameC }}</label>
+      </div>
+      <div nz-col nzSpan="6">
+        <label nz-checkbox nzValue="D">{{ nameD }}</label>
+      </div>
+      <div nz-col nzSpan="6">
+        <label nz-checkbox nzValue="E">{{ nameE }}</label>
+      </div>
+      <div nz-col nzSpan="6">
+        <label nz-checkbox nzValue="F">{{ nameF }}</label>
+      </div>
+      <div nz-col nzSpan="6">
+        <label nz-checkbox nzValue="G">{{ nameG }}</label>
+      </div>
+    </div>
+  </nz-checkbox-wrapper>
+</nz-modal>
+
+<nz-modal
+  [(nzVisible)]="isLessShow"
+  nzTitle="事件減少疫情情況"
+  (nzOnCancel)="handleLessCancel()"
+  (nzOnOk)="handleLessOk()"
+>
+  <nz-checkbox-wrapper style="width: 100%" (nzOnChange)="lessLog($event)">
     <div nz-row>
       <div nz-col nzSpan="6">
         <label nz-checkbox nzValue="A">{{ nameA }}</label>
@@ -690,25 +739,119 @@
   (nzOnCancel)="handleTimerCancel()"
   (nzOnOk)="handleTimerOk()"
 >
-  <h3>倒數計時分鐘數：</h3>
-  <nz-radio-group
-    [(ngModel)]="minSet"
-    [nzButtonStyle]="'solid'"
-    style="width: 100%"
-  >
-    <label nz-radio-button [nzValue]="8" style="width: 33%">8 分鐘</label>
-    <label nz-radio-button [nzValue]="5" style="width: 33%">5 分鐘</label>
-    <label nz-radio-button [nzValue]="0" style="width: 33%"> 其他 </label>
-  </nz-radio-group>
+  <nz-tabset nzSize="large">
+    <nz-tab nzTitle="第 一 回 合">
+      <nz-radio-group
+        [(ngModel)]="timerSet"
+        [nzButtonStyle]="'solid'"
+        style="width: 100%"
+      >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 10, isDynamic: true }"
+          style="width: 33%"
+          >動態 10 分鐘</label
+        >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 6, isDynamic: false }"
+          style="width: 33%"
+          >靜態 6 分鐘</label
+        >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 0, isDynamic: false }"
+          style="width: 33%"
+        >
+          其他
+        </label>
+      </nz-radio-group>
+    </nz-tab>
+    <nz-tab nzTitle="第 二 回 合">
+      <nz-radio-group
+        [(ngModel)]="timerSet"
+        [nzButtonStyle]="'solid'"
+        style="width: 100%"
+      >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 7, isDynamic: true }"
+          style="width: 33%"
+          >動態 7 分鐘</label
+        >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 6, isDynamic: false }"
+          style="width: 33%"
+          >靜態 6 分鐘</label
+        >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 0, isDynamic: false }"
+          style="width: 33%"
+        >
+          其他
+        </label>
+      </nz-radio-group>
+    </nz-tab>
+    <nz-tab nzTitle="第 三 回 合">
+      <nz-radio-group
+        [(ngModel)]="timerSet"
+        [nzButtonStyle]="'solid'"
+        style="width: 100%"
+      >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 7, isDynamic: true }"
+          style="width: 33%"
+          >動態 7 分鐘</label
+        >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 6, isDynamic: false }"
+          style="width: 33%"
+          >靜態 6 分鐘</label
+        >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 0, isDynamic: false }"
+          style="width: 33%"
+        >
+          其他
+        </label>
+      </nz-radio-group>
+    </nz-tab>
+    <nz-tab nzTitle="第 四 回 合">
+      <nz-radio-group
+        [(ngModel)]="timerSet"
+        [nzButtonStyle]="'solid'"
+        style="width: 100%"
+      >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 10, isDynamic: false }"
+          style="width: 50%"
+          >動態 10 分鐘</label
+        >
+        <label
+          nz-radio-button
+          [nzValue]="{ min: 0, isDynamic: false }"
+          style="width: 50%"
+        >
+          其他
+        </label>
+      </nz-radio-group>
+    </nz-tab>
+  </nz-tabset>
 
   <nz-input-group
     nzAddOnBefore="其他時間"
     style="margin-top: 30px"
-    *ngIf="minSet != 8 && minSet != 5"
+    *ngIf="timerSet.min != 7 && timerSet.min != 10 && timerSet.min != 6"
   >
     <nz-input-number
       style="width: 100%"
-      [(ngModel)]="minSet"
+      [(ngModel)]="timerSet.min"
       [nzMin]="0"
       [nzMax]="99"
       [nzStep]="1"
