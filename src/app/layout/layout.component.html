@@ -1,592 +1,618 @@
 <body style="overflow: hidden">
-  <div nz-row class="main">
-    <!-- A國 -->
-    <div nz-col nzSpan="6" [ngClass]="getAClass()">
-      <div nz-row style="height: 75%" *ngIf="valueA != -1">
-        <table
-          style="text-align: center; width: 100%; height: 50vh"
-          class="tableA"
-        >
-          <!-- A國疫情指數 -->
-          <tr>
-            <td style="width: 60%; font-size: 65px">{{ nameA }}</td>
-            <td>
-              <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
-              {{ healA }}
-            </td>
-          </tr>
-          <!-- A國捐贈疫苗 -->
-          <tr>
-            <td rowspan="2" style="width: 60%; font-size: 100px">
-              {{ valueA }}
-            </td>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuA1"
-                ><i nz-icon nzType="heart" nzTheme="outline"></i> {{ donateA }}
-              </span>
-              <nz-dropdown-menu #menuA1="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toDonateA()"
-                    style="width: 120px; text-align: center"
-                  >
-                    捐贈他國
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reDonateA()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消捐贈
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- A國接受疫苗 -->
-          <tr>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuA2"
-                ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorA }}
-              </span>
-              <nz-dropdown-menu #menuA2="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toFavorA()"
-                    style="width: 120px; text-align: center"
-                  >
-                    接受疫苗
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reFavorA()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消接受
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- A國使用疫苗 -->
-          <tr style="font-size: 65px" [ngClass]="getAHide()">
-            <td (click)="lessA()"><i nz-icon nzType="deployment-unit"></i></td>
-            <td (click)="reA()"><i nz-icon nzType="undo"></i></td>
-          </tr>
-        </table>
+  <div class="parentDiv">
+    <div nz-row class="main">
+      <!-- A國 -->
+      <div nz-col nzSpan="6" [ngClass]="getAClass()">
+        <div nz-row style="height: 75%" *ngIf="valueA != -1">
+          <table
+            style="text-align: center; width: 100%; height: 50vh"
+            class="tableA"
+          >
+            <!-- A國疫情指數 -->
+            <tr>
+              <td style="width: 60%; font-size: 65px">{{ nameA }}</td>
+              <td>
+                <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
+                {{ healA }}
+              </td>
+            </tr>
+            <!-- A國捐贈疫苗 -->
+            <tr>
+              <td rowspan="2" style="width: 60%; font-size: 100px">
+                {{ valueA }}
+              </td>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuA1"
+                  ><i nz-icon nzType="heart" nzTheme="outline"></i>
+                  {{ donateA }}
+                </span>
+                <nz-dropdown-menu #menuA1="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toDonateA()"
+                      style="width: 120px; text-align: center"
+                    >
+                      捐贈他國
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reDonateA()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消捐贈
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- A國接受疫苗 -->
+            <tr>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuA2"
+                  ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorA }}
+                </span>
+                <nz-dropdown-menu #menuA2="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toFavorA()"
+                      style="width: 120px; text-align: center"
+                    >
+                      接受疫苗
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reFavorA()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消接受
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- A國使用疫苗 -->
+            <tr style="font-size: 65px" [ngClass]="getAHide()">
+              <td (click)="lessA()">
+                <i nz-icon nzType="deployment-unit"></i>
+              </td>
+              <td (click)="reA()"><i nz-icon nzType="undo"></i></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <!-- B國 -->
-    <div nz-col nzSpan="6" [ngClass]="getBClass()">
-      <div nz-row style="height: 75%" *ngIf="valueB != -1">
-        <table
-          style="text-align: center; width: 100%; height: 50vh"
-          class="tableB"
-        >
-          <!-- B國疫情指數 -->
-          <tr>
-            <td style="width: 60%; font-size: 65px">{{ nameB }}</td>
-            <td>
-              <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
-              {{ healB }}
-            </td>
-          </tr>
-          <!-- B國捐贈疫苗 -->
-          <tr>
-            <td rowspan="2" style="width: 60%; font-size: 100px">
-              {{ valueB }}
-            </td>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuB1"
-                ><i nz-icon nzType="heart" nzTheme="outline"></i> {{ donateB }}
-              </span>
-              <nz-dropdown-menu #menuB1="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toDonateB()"
-                    style="width: 120px; text-align: center"
-                  >
-                    捐贈他國
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reDonateB()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消捐贈
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- B國接受疫苗 -->
-          <tr>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuB2"
-                ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorB }}
-              </span>
-              <nz-dropdown-menu #menuB2="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toFavorB()"
-                    style="width: 120px; text-align: center"
-                  >
-                    接受疫苗
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reFavorB()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消接受
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- B國使用疫苗 -->
-          <tr style="font-size: 65px" [ngClass]="getBHide()">
-            <td (click)="lessB()"><i nz-icon nzType="deployment-unit"></i></td>
-            <td (click)="reB()"><i nz-icon nzType="undo"></i></td>
-          </tr>
-        </table>
+      <!-- B國 -->
+      <div nz-col nzSpan="6" [ngClass]="getBClass()">
+        <div nz-row style="height: 75%" *ngIf="valueB != -1">
+          <table
+            style="text-align: center; width: 100%; height: 50vh"
+            class="tableB"
+          >
+            <!-- B國疫情指數 -->
+            <tr>
+              <td style="width: 60%; font-size: 65px">{{ nameB }}</td>
+              <td>
+                <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
+                {{ healB }}
+              </td>
+            </tr>
+            <!-- B國捐贈疫苗 -->
+            <tr>
+              <td rowspan="2" style="width: 60%; font-size: 100px">
+                {{ valueB }}
+              </td>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuB1"
+                  ><i nz-icon nzType="heart" nzTheme="outline"></i>
+                  {{ donateB }}
+                </span>
+                <nz-dropdown-menu #menuB1="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toDonateB()"
+                      style="width: 120px; text-align: center"
+                    >
+                      捐贈他國
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reDonateB()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消捐贈
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- B國接受疫苗 -->
+            <tr>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuB2"
+                  ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorB }}
+                </span>
+                <nz-dropdown-menu #menuB2="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toFavorB()"
+                      style="width: 120px; text-align: center"
+                    >
+                      接受疫苗
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reFavorB()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消接受
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- B國使用疫苗 -->
+            <tr style="font-size: 65px" [ngClass]="getBHide()">
+              <td (click)="lessB()">
+                <i nz-icon nzType="deployment-unit"></i>
+              </td>
+              <td (click)="reB()"><i nz-icon nzType="undo"></i></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <!-- C國 -->
-    <div nz-col nzSpan="6" [ngClass]="getCClass()">
-      <div nz-row style="height: 75%" *ngIf="valueC != -1">
-        <table
-          style="text-align: center; width: 100%; height: 50vh"
-          class="tableC"
-        >
-          <!-- C國疫情指數 -->
-          <tr>
-            <td style="width: 60%; font-size: 65px">{{ nameC }}</td>
-            <td>
-              <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
-              {{ healC }}
-            </td>
-          </tr>
-          <!-- C國捐贈疫苗 -->
-          <tr>
-            <td rowspan="2" style="width: 60%; font-size: 100px">
-              {{ valueC }}
-            </td>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuC1"
-                ><i nz-icon nzType="heart" nzTheme="outline"></i> {{ donateC }}
-              </span>
-              <nz-dropdown-menu #menuC1="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toDonateC()"
-                    style="width: 120px; text-align: center"
-                  >
-                    捐贈他國
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reDonateC()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消捐贈
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- C國接受疫苗 -->
-          <tr>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuC2"
-                ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorC }}
-              </span>
-              <nz-dropdown-menu #menuC2="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toFavorC()"
-                    style="width: 120px; text-align: center"
-                  >
-                    接受疫苗
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reFavorC()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消接受
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- C國使用疫苗 -->
-          <tr style="font-size: 65px" [ngClass]="getCHide()">
-            <td (click)="lessC()"><i nz-icon nzType="deployment-unit"></i></td>
-            <td (click)="reC()"><i nz-icon nzType="undo"></i></td>
-          </tr>
-        </table>
+      <!-- C國 -->
+      <div nz-col nzSpan="6" [ngClass]="getCClass()">
+        <div nz-row style="height: 75%" *ngIf="valueC != -1">
+          <table
+            style="text-align: center; width: 100%; height: 50vh"
+            class="tableC"
+          >
+            <!-- C國疫情指數 -->
+            <tr>
+              <td style="width: 60%; font-size: 65px">{{ nameC }}</td>
+              <td>
+                <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
+                {{ healC }}
+              </td>
+            </tr>
+            <!-- C國捐贈疫苗 -->
+            <tr>
+              <td rowspan="2" style="width: 60%; font-size: 100px">
+                {{ valueC }}
+              </td>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuC1"
+                  ><i nz-icon nzType="heart" nzTheme="outline"></i>
+                  {{ donateC }}
+                </span>
+                <nz-dropdown-menu #menuC1="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toDonateC()"
+                      style="width: 120px; text-align: center"
+                    >
+                      捐贈他國
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reDonateC()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消捐贈
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- C國接受疫苗 -->
+            <tr>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuC2"
+                  ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorC }}
+                </span>
+                <nz-dropdown-menu #menuC2="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toFavorC()"
+                      style="width: 120px; text-align: center"
+                    >
+                      接受疫苗
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reFavorC()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消接受
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- C國使用疫苗 -->
+            <tr style="font-size: 65px" [ngClass]="getCHide()">
+              <td (click)="lessC()">
+                <i nz-icon nzType="deployment-unit"></i>
+              </td>
+              <td (click)="reC()"><i nz-icon nzType="undo"></i></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <!-- D國 -->
-    <div nz-col nzSpan="6" [ngClass]="getDClass()">
-      <div nz-row style="height: 75%" *ngIf="valueD != -1">
-        <table
-          style="text-align: center; width: 100%; height: 50vh"
-          class="tableD"
-        >
-          <!-- D國疫情指數 -->
-          <tr>
-            <td style="width: 60%; font-size: 65px">{{ nameD }}</td>
-            <td>
-              <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
-              {{ healD }}
-            </td>
-          </tr>
-          <!-- D國捐贈疫苗 -->
-          <tr>
-            <td rowspan="2" style="width: 60%; font-size: 100px">
-              {{ valueD }}
-            </td>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuD1"
-                ><i nz-icon nzType="heart" nzTheme="outline"></i> {{ donateD }}
-              </span>
-              <nz-dropdown-menu #menuD1="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toDonateD()"
-                    style="width: 120px; text-align: center"
-                  >
-                    捐贈他國
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reDonateD()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消捐贈
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- D國接受疫苗 -->
-          <tr>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuD2"
-                ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorD }}
-              </span>
-              <nz-dropdown-menu #menuD2="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toFavorD()"
-                    style="width: 120px; text-align: center"
-                  >
-                    接受疫苗
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reFavorD()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消接受
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- D國使用疫苗 -->
-          <tr style="font-size: 65px" [ngClass]="getDHide()">
-            <td (click)="lessD()"><i nz-icon nzType="deployment-unit"></i></td>
-            <td (click)="reD()"><i nz-icon nzType="undo"></i></td>
-          </tr>
-        </table>
+      <!-- D國 -->
+      <div nz-col nzSpan="6" [ngClass]="getDClass()">
+        <div nz-row style="height: 75%" *ngIf="valueD != -1">
+          <table
+            style="text-align: center; width: 100%; height: 50vh"
+            class="tableD"
+          >
+            <!-- D國疫情指數 -->
+            <tr>
+              <td style="width: 60%; font-size: 65px">{{ nameD }}</td>
+              <td>
+                <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
+                {{ healD }}
+              </td>
+            </tr>
+            <!-- D國捐贈疫苗 -->
+            <tr>
+              <td rowspan="2" style="width: 60%; font-size: 100px">
+                {{ valueD }}
+              </td>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuD1"
+                  ><i nz-icon nzType="heart" nzTheme="outline"></i>
+                  {{ donateD }}
+                </span>
+                <nz-dropdown-menu #menuD1="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toDonateD()"
+                      style="width: 120px; text-align: center"
+                    >
+                      捐贈他國
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reDonateD()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消捐贈
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- D國接受疫苗 -->
+            <tr>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuD2"
+                  ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorD }}
+                </span>
+                <nz-dropdown-menu #menuD2="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toFavorD()"
+                      style="width: 120px; text-align: center"
+                    >
+                      接受疫苗
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reFavorD()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消接受
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- D國使用疫苗 -->
+            <tr style="font-size: 65px" [ngClass]="getDHide()">
+              <td (click)="lessD()">
+                <i nz-icon nzType="deployment-unit"></i>
+              </td>
+              <td (click)="reD()"><i nz-icon nzType="undo"></i></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <!-- E國 -->
-    <div nz-col nzSpan="6" [ngClass]="getEClass()">
-      <div nz-row style="height: 75%" *ngIf="valueE != -1">
-        <table
-          style="text-align: center; width: 100%; height: 50vh"
-          class="tableE"
-        >
-          <!-- E國疫情指數 -->
-          <tr>
-            <td style="width: 60%; font-size: 65px">{{ nameE }}</td>
-            <td>
-              <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
-              {{ healE }}
-            </td>
-          </tr>
-          <!-- E國捐贈疫苗 -->
-          <tr>
-            <td rowspan="2" style="width: 60%; font-size: 100px">
-              {{ valueE }}
-            </td>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuE1"
-                ><i nz-icon nzType="heart" nzTheme="outline"></i> {{ donateE }}
-              </span>
-              <nz-dropdown-menu #menuE1="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toDonateE()"
-                    style="width: 120px; text-align: center"
-                  >
-                    捐贈他國
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reDonateE()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消捐贈
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- E國接受疫苗 -->
-          <tr>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuE2"
-                ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorE }}
-              </span>
-              <nz-dropdown-menu #menuE2="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toFavorE()"
-                    style="width: 120px; text-align: center"
-                  >
-                    接受疫苗
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reFavorE()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消接受
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- E國使用疫苗 -->
-          <tr style="font-size: 65px" [ngClass]="getEHide()">
-            <td (click)="lessE()"><i nz-icon nzType="deployment-unit"></i></td>
-            <td (click)="reE()"><i nz-icon nzType="undo"></i></td>
-          </tr>
-        </table>
+      <!-- E國 -->
+      <div nz-col nzSpan="6" [ngClass]="getEClass()">
+        <div nz-row style="height: 75%" *ngIf="valueE != -1">
+          <table
+            style="text-align: center; width: 100%; height: 50vh"
+            class="tableE"
+          >
+            <!-- E國疫情指數 -->
+            <tr>
+              <td style="width: 60%; font-size: 65px">{{ nameE }}</td>
+              <td>
+                <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
+                {{ healE }}
+              </td>
+            </tr>
+            <!-- E國捐贈疫苗 -->
+            <tr>
+              <td rowspan="2" style="width: 60%; font-size: 100px">
+                {{ valueE }}
+              </td>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuE1"
+                  ><i nz-icon nzType="heart" nzTheme="outline"></i>
+                  {{ donateE }}
+                </span>
+                <nz-dropdown-menu #menuE1="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toDonateE()"
+                      style="width: 120px; text-align: center"
+                    >
+                      捐贈他國
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reDonateE()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消捐贈
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- E國接受疫苗 -->
+            <tr>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuE2"
+                  ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorE }}
+                </span>
+                <nz-dropdown-menu #menuE2="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toFavorE()"
+                      style="width: 120px; text-align: center"
+                    >
+                      接受疫苗
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reFavorE()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消接受
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- E國使用疫苗 -->
+            <tr style="font-size: 65px" [ngClass]="getEHide()">
+              <td (click)="lessE()">
+                <i nz-icon nzType="deployment-unit"></i>
+              </td>
+              <td (click)="reE()"><i nz-icon nzType="undo"></i></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <!-- F國 -->
-    <div nz-col nzSpan="6" [ngClass]="getFClass()">
-      <div nz-row style="height: 75%" *ngIf="valueF != -1">
-        <table
-          style="text-align: center; width: 100%; height: 50vh"
-          class="tableF"
-        >
-          <!-- F國疫情指數 -->
-          <tr>
-            <td style="width: 60%; font-size: 65px">{{ nameF }}</td>
-            <td>
-              <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
-              {{ healF }}
-            </td>
-          </tr>
-          <!-- F國捐贈疫苗 -->
-          <tr>
-            <td rowspan="2" style="width: 60%; font-size: 100px">
-              {{ valueF }}
-            </td>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuF1"
-                ><i nz-icon nzType="heart" nzTheme="outline"></i> {{ donateF }}
-              </span>
-              <nz-dropdown-menu #menuF1="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toDonateF()"
-                    style="width: 120px; text-align: center"
-                  >
-                    捐贈他國
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reDonateF()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消捐贈
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- F國接受疫苗 -->
-          <tr>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuF2"
-                ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorF }}
-              </span>
-              <nz-dropdown-menu #menuF2="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toFavorF()"
-                    style="width: 120px; text-align: center"
-                  >
-                    接受疫苗
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reFavorF()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消接受
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- F國使用疫苗 -->
-          <tr style="font-size: 65px" [ngClass]="getFHide()">
-            <td (click)="lessF()"><i nz-icon nzType="deployment-unit"></i></td>
-            <td (click)="reF()"><i nz-icon nzType="undo"></i></td>
-          </tr>
-        </table>
+      <!-- F國 -->
+      <div nz-col nzSpan="6" [ngClass]="getFClass()">
+        <div nz-row style="height: 75%" *ngIf="valueF != -1">
+          <table
+            style="text-align: center; width: 100%; height: 50vh"
+            class="tableF"
+          >
+            <!-- F國疫情指數 -->
+            <tr>
+              <td style="width: 60%; font-size: 65px">{{ nameF }}</td>
+              <td>
+                <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
+                {{ healF }}
+              </td>
+            </tr>
+            <!-- F國捐贈疫苗 -->
+            <tr>
+              <td rowspan="2" style="width: 60%; font-size: 100px">
+                {{ valueF }}
+              </td>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuF1"
+                  ><i nz-icon nzType="heart" nzTheme="outline"></i>
+                  {{ donateF }}
+                </span>
+                <nz-dropdown-menu #menuF1="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toDonateF()"
+                      style="width: 120px; text-align: center"
+                    >
+                      捐贈他國
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reDonateF()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消捐贈
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- F國接受疫苗 -->
+            <tr>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuF2"
+                  ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorF }}
+                </span>
+                <nz-dropdown-menu #menuF2="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toFavorF()"
+                      style="width: 120px; text-align: center"
+                    >
+                      接受疫苗
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reFavorF()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消接受
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- F國使用疫苗 -->
+            <tr style="font-size: 65px" [ngClass]="getFHide()">
+              <td (click)="lessF()">
+                <i nz-icon nzType="deployment-unit"></i>
+              </td>
+              <td (click)="reF()"><i nz-icon nzType="undo"></i></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <!-- G國 -->
-    <div nz-col nzSpan="6" [ngClass]="getGClass()">
-      <div nz-row style="height: 75%" *ngIf="valueG != -1">
-        <table
-          style="text-align: center; width: 100%; height: 50vh"
-          class="tableG"
-        >
-          <!-- G國疫情指數 -->
-          <tr>
-            <td style="width: 60%; font-size: 65px">{{ nameG }}</td>
-            <td>
-              <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
-              {{ healG }}
-            </td>
-          </tr>
-          <!-- G國捐贈疫苗 -->
-          <tr>
-            <td rowspan="2" style="width: 60%; font-size: 100px">
-              {{ valueG }}
-            </td>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuG1"
-                ><i nz-icon nzType="heart" nzTheme="outline"></i> {{ donateG }}
-              </span>
-              <nz-dropdown-menu #menuG1="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toDonateG()"
-                    style="width: 120px; text-align: center"
-                  >
-                    捐贈他國
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reDonateG()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消捐贈
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- G國接受疫苗 -->
-          <tr>
-            <td>
-              <span nz-dropdown [nzDropdownMenu]="menuG2"
-                ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorG }}
-              </span>
-              <nz-dropdown-menu #menuG2="nzDropdownMenu">
-                <ul nz-menu nzSelectable>
-                  <li
-                    nz-menu-item
-                    (click)="toFavorG()"
-                    style="width: 120px; text-align: center"
-                  >
-                    接受疫苗
-                  </li>
-                  <li
-                    nz-menu-item
-                    (click)="reFavorG()"
-                    style="width: 120px; text-align: center"
-                  >
-                    取消接受
-                  </li>
-                </ul>
-              </nz-dropdown-menu>
-            </td>
-          </tr>
-          <!-- G國使用疫苗 -->
-          <tr style="font-size: 65px" [ngClass]="getGHide()">
-            <td (click)="lessG()"><i nz-icon nzType="deployment-unit"></i></td>
-            <td (click)="reG()"><i nz-icon nzType="undo"></i></td>
-          </tr>
-        </table>
+      <!-- G國 -->
+      <div nz-col nzSpan="6" [ngClass]="getGClass()">
+        <div nz-row style="height: 75%" *ngIf="valueG != -1">
+          <table
+            style="text-align: center; width: 100%; height: 50vh"
+            class="tableG"
+          >
+            <!-- G國疫情指數 -->
+            <tr>
+              <td style="width: 60%; font-size: 65px">{{ nameG }}</td>
+              <td>
+                <i nz-icon nzType="deployment-unit" nzTheme="outline"></i>
+                {{ healG }}
+              </td>
+            </tr>
+            <!-- G國捐贈疫苗 -->
+            <tr>
+              <td rowspan="2" style="width: 60%; font-size: 100px">
+                {{ valueG }}
+              </td>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuG1"
+                  ><i nz-icon nzType="heart" nzTheme="outline"></i>
+                  {{ donateG }}
+                </span>
+                <nz-dropdown-menu #menuG1="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toDonateG()"
+                      style="width: 120px; text-align: center"
+                    >
+                      捐贈他國
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reDonateG()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消捐贈
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- G國接受疫苗 -->
+            <tr>
+              <td>
+                <span nz-dropdown [nzDropdownMenu]="menuG2"
+                  ><i nz-icon nzType="smile" nzTheme="outline"></i> {{ favorG }}
+                </span>
+                <nz-dropdown-menu #menuG2="nzDropdownMenu">
+                  <ul nz-menu nzSelectable>
+                    <li
+                      nz-menu-item
+                      (click)="toFavorG()"
+                      style="width: 120px; text-align: center"
+                    >
+                      接受疫苗
+                    </li>
+                    <li
+                      nz-menu-item
+                      (click)="reFavorG()"
+                      style="width: 120px; text-align: center"
+                    >
+                      取消接受
+                    </li>
+                  </ul>
+                </nz-dropdown-menu>
+              </td>
+            </tr>
+            <!-- G國使用疫苗 -->
+            <tr style="font-size: 65px" [ngClass]="getGHide()">
+              <td (click)="lessG()">
+                <i nz-icon nzType="deployment-unit"></i>
+              </td>
+              <td (click)="reG()"><i nz-icon nzType="undo"></i></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <!-- 倒數計時器 Timing -->
-    <div nz-col nzSpan="6" [ngClass]="getTimeClass()">
-      <div
-        style="
-          text-align: center;
-          line-height: 50vh;
-          font-size: 200%;
-          user-select: none;
-        "
-      >
-        <i
-          nz-icon
-          nzType="clock-circle"
-          nzTheme="outline"
-          (click)="toShowTimer()"
-          *ngIf="timer == '' || timer == '00:00'"
-        ></i>
-        <i
-          nz-icon
-          nzType="pause-circle"
-          nzTheme="outline"
-          (click)="timeOut()"
-          *ngIf="timer != '' && timer != '00:00' && !isStop"
-        ></i>
-        <i
-          nz-icon
-          nzType="play-circle"
-          nzTheme="outline"
-          (click)="continue()"
-          *ngIf="timer != '' && timer != '00:00' && isStop"
-        ></i>
-        {{ timer }}
+      <!-- 倒數計時器 Timing -->
+      <div nz-col nzSpan="6" [ngClass]="getTimeClass()">
+        <div
+          style="
+            text-align: center;
+            line-height: 50vh;
+            font-size: 200%;
+            user-select: none;
+          "
+        >
+          <i
+            nz-icon
+            nzType="clock-circle"
+            nzTheme="outline"
+            (click)="toShowTimer()"
+            *ngIf="timer == '' || timer == '00:00'"
+          ></i>
+          <i
+            nz-icon
+            nzType="pause-circle"
+            nzTheme="outline"
+            (click)="timeOut()"
+            *ngIf="timer != '' && timer != '00:00' && !isStop"
+          ></i>
+          <i
+            nz-icon
+            nzType="play-circle"
+            nzTheme="outline"
+            (click)="continue()"
+            *ngIf="timer != '' && timer != '00:00' && isStop"
+          ></i>
+          {{ timer }}
+        </div>
       </div>
     </div>
+    <div class="child1" (click)="closePicture()" *ngIf="isPic1"></div>
+    <div class="child2" (click)="closePicture()" *ngIf="isPic2"></div>
+    <div class="child3" (click)="closePicture()" *ngIf="isPic3"></div>
   </div>
 </body>
 
@@ -607,6 +633,35 @@
     (click)="toShowAudio()"
     class="menu-btn"
   ></i>
+</nz-affix>
+<nz-affix style="position: absolute; top: 94vh; right: 18vw">
+  <button
+    nz-button
+    nzSize="small"
+    nzGhost
+    style="margin-left: 10px"
+    (click)="showPic1()"
+  >
+    1
+  </button>
+  <button
+    nz-button
+    nzSize="small"
+    nzGhost
+    style="margin-left: 10px"
+    (click)="showPic2()"
+  >
+    2
+  </button>
+  <button
+    nz-button
+    nzSize="small"
+    nzGhost
+    style="margin-left: 10px"
+    (click)="showPic3()"
+  >
+    3
+  </button>
 </nz-affix>
 
 <!-- 抽屜 -->

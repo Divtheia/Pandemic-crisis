@@ -188,3 +188,43 @@ table {
 .tableH:hover .h-hide-over {
   color: rgb(255, 205, 213);
 }
+
+.parentDiv {
+  position: relative;
+}
+
+.main {
+  position: absolute;
+  z-index: 0;
+}
+
+.child1 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 1;
+  // background: url("../../assets/gif/warning.gif");
+  background: url("https://images.wallpaperscraft.com/image/cliffs_coast_sea_174181_1920x1200.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.child2 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 2;
+  background: url("https://images.wallpaperscraft.com/image/flower_pink_petals_bud_close_up_119905_1920x1200.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.child3 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 3;
+  background: url("https://images.wallpaperscraft.com/image/book_heart_page_120859_1920x1200.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

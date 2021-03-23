@@ -64,6 +64,9 @@ export class LayoutComponent implements OnInit {
   isAddShow = false;
   isLessShow = false;
   isStop = false;
+  isPic1 = false;
+  isPic2 = false;
+  isPic3 = false;
   helpNum = 0;
   helpValue = 0;
   timer = '';
@@ -1049,5 +1052,24 @@ export class LayoutComponent implements OnInit {
 
   handleAudioCancel() {
     this.isAudioShow = false;
+  }
+
+  // 圖片控制
+  showPic1() {
+    this.isPic1 = true;
+  }
+
+  showPic2() {
+    this.isPic2 = true;
+  }
+
+  showPic3() {
+    this.isPic3 = true;
+  }
+
+  closePicture() {
+    this.isPic1 = false;
+    this.isPic2 = false;
+    this.isPic3 = false;
   }
 }
