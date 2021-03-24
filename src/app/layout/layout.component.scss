@@ -202,19 +202,39 @@ table {
   height: 100vh;
   width: 100vw;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   // background: url("../../assets/gif/warning.gif");
   background: url("https://images.wallpaperscraft.com/image/cliffs_coast_sea_174181_1920x1200.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
-.child2 {
+.child2_1 {
   height: 100vh;
   width: 100vw;
   position: absolute;
-  z-index: 2;
+  z-index: 21;
   background: url("https://images.wallpaperscraft.com/image/flower_pink_petals_bud_close_up_119905_1920x1200.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.child2_2 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 22;
+  background: url("https://images.wallpaperscraft.com/image/rose_red_bud_127534_1920x1200.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.child2_3 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 23;
+  background: url("https://images.wallpaperscraft.com/image/orchid_flower_petals_colors_67894_1920x1200.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -223,7 +243,7 @@ table {
   height: 100vh;
   width: 100vw;
   position: absolute;
-  z-index: 3;
+  z-index: 30;
   background: url("https://images.wallpaperscraft.com/image/book_heart_page_120859_1920x1200.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;

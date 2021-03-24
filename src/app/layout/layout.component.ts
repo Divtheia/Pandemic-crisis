@@ -65,7 +65,9 @@ export class LayoutComponent implements OnInit {
   isLessShow = false;
   isStop = false;
   isPic1 = false;
-  isPic2 = false;
+  isPic2_1 = false;
+  isPic2_2 = false;
+  isPic2_3 = false;
   isPic3 = false;
   helpNum = 0;
   helpValue = 0;
@@ -1059,8 +1061,16 @@ export class LayoutComponent implements OnInit {
     this.isPic1 = true;
   }
 
-  showPic2() {
-    this.isPic2 = true;
+  showPic2_1() {
+    this.isPic2_1 = true;
+  }
+
+  showPic2_2() {
+    this.isPic2_2 = true;
+  }
+
+  showPic2_3() {
+    this.isPic2_3 = true;
   }
 
   showPic3() {
@@ -1069,7 +1079,9 @@ export class LayoutComponent implements OnInit {
 
   closePicture() {
     this.isPic1 = false;
-    this.isPic2 = false;
+    this.isPic2_1 = false;
+    this.isPic2_2 = false;
+    this.isPic2_3 = false;
     this.isPic3 = false;
   }
 }
