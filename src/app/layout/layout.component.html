@@ -611,10 +611,11 @@
       </div>
     </div>
     <div class="child1" (click)="closePicture()" *ngIf="isPic1"></div>
-    <div class="child2_1" (click)="showPic2_2()" *ngIf="isPic2_1"></div>
-    <div class="child2_2" (click)="showPic2_3()" *ngIf="isPic2_2"></div>
-    <div class="child2_3" (click)="closePicture()" *ngIf="isPic2_3"></div>
-    <div class="child3" (click)="closePicture()" *ngIf="isPic3"></div>
+    <div class="child2" (click)="closePicture()" *ngIf="isPic2"></div>
+    <div class="child3_1" (click)="showPic3_2()" *ngIf="isPic3_1"></div>
+    <div class="child3_2" (click)="showPic3_3()" *ngIf="isPic3_2"></div>
+    <div class="child3_3" (click)="closePicture()" *ngIf="isPic3_3"></div>
+    <div class="child4" (click)="closePicture()" *ngIf="isPic4"></div>
   </div>
 </body>
 
@@ -636,7 +637,7 @@
     class="menu-btn"
   ></i>
 </nz-affix>
-<nz-affix style="position: absolute; top: 94vh; right: 18vw">
+<nz-affix style="position: absolute; top: 94vh; right: 16vw">
   <button
     nz-button
     nzSize="small"
@@ -651,7 +652,7 @@
     nzSize="small"
     nzGhost
     style="margin-left: 10px"
-    (click)="showPic2_1()"
+    (click)="showPic2()"
   >
     2
   </button>
@@ -660,9 +661,18 @@
     nzSize="small"
     nzGhost
     style="margin-left: 10px"
-    (click)="showPic3()"
+    (click)="showPic3_1()"
   >
     3
+  </button>
+  <button
+    nz-button
+    nzSize="small"
+    nzGhost
+    style="margin-left: 10px"
+    (click)="showPic4()"
+  >
+    4
   </button>
 </nz-affix>
 
