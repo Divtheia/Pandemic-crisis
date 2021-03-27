@@ -1025,11 +1025,11 @@ export class LayoutComponent implements OnInit {
     const audio = new Audio();
     audio.src =
       // 原本音效
-      // 'http://docs.google.com/uc?export=open&id=1BBJ1VRHL8j8CO_R5ug6Q9xVjvy-0ziY9';
-      // 增強 7 db
-      // 'http://docs.google.com/uc?export=open&id=1yft6Vd9_EyVhndDGb24TYRJRfBPJ-toj';
-      // 增強 10 db
-      'http://docs.google.com/uc?export=open&id=1IM8bJxgDStc5mK_g9FB7boh_DcsTFUoC';
+      'http://docs.google.com/uc?export=open&id=1BBJ1VRHL8j8CO_R5ug6Q9xVjvy-0ziY9';
+    // 增強 7 db
+    // 'http://docs.google.com/uc?export=open&id=1yft6Vd9_EyVhndDGb24TYRJRfBPJ-toj';
+    // 增強 10 db
+    // 'http://docs.google.com/uc?export=open&id=1IM8bJxgDStc5mK_g9FB7boh_DcsTFUoC';
     audio.load();
     audio.play();
   }
@@ -1038,11 +1038,11 @@ export class LayoutComponent implements OnInit {
     const audio = new Audio();
     audio.src =
       // 原本音效
-      // 'http://docs.google.com/uc?export=open&id=1Mf8fbs7yUmFvboYeoIZs6RkokQjKQNUV';
-      // 增強 5 db
-      // 'http://docs.google.com/uc?export=open&id=1IxncLg3NWhFowXc-Zqg0jFBCpG1nD8qN';
-      // 增強 7 db
-      'http://docs.google.com/uc?export=open&id=19F14FQOztsOXIujAD3kQ2crKz2bkfax-';
+      'http://docs.google.com/uc?export=open&id=1Mf8fbs7yUmFvboYeoIZs6RkokQjKQNUV';
+    // 增強 5 db
+    // 'http://docs.google.com/uc?export=open&id=1IxncLg3NWhFowXc-Zqg0jFBCpG1nD8qN';
+    // 增強 7 db
+    // 'http://docs.google.com/uc?export=open&id=19F14FQOztsOXIujAD3kQ2crKz2bkfax-';
     audio.load();
     audio.play();
     this.isAudioShow = false;
